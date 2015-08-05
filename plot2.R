@@ -1,6 +1,6 @@
 # Exploratory Data Analysis
 # Course Project 1
-# Plot 1
+# Plot 2
 
 # Read in data from the "Household Power Consumption" data set.
 # Only 2 days worth of data are required:
@@ -40,15 +40,12 @@ plot(d$Global_active_power,
 middle <- grep("2007-02-02", d$Date)[1]
 end <- length(d$Date)
 
-axis(1, 
-     at = c( 1, middle, end), 
-     labels = c("Thurs", "Fri", "Sat"))
+axis(1, at = c( 1, middle, end), labels = c("Thurs", "Fri", "Sat"))
 
 # -----------------------------------------------
 
 # Save the resultant plot as a .png file
-dev.copy(png,
-         file = "plot2.png",
+dev.copy(png, file = "plot2.png",
          width = 480,
          height = 480)
 dev.off()
