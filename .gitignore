@@ -2,5 +2,7 @@
 # Course Project 1
 # Files to ignore
 
+.Rapp.history
+.Rhistory
 household_power_consumption.txt
 plot_script.R
