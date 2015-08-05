@@ -39,6 +39,7 @@ d$Sub_metering_3 <- as.numeric(d$Sub_metering_3)
 # First create a basic plot with no points
 plot(d$Sub_metering_1,
      type = "n",
+     bg = "white",
      xaxt = "n",
      xlab = "",
      ylab = "Energy Sub Metering")
