@@ -37,7 +37,11 @@ d$Sub_metering_3 <- as.numeric(d$Sub_metering_3)
 
  
 # First create a basic plot with no points
-plot(d$Sub_metering_1, type = "n", xaxt = "n", xlab = "", ylab = "Energy Sub Metering")
+plot(d$Sub_metering_1,
+     type = "n",
+     xaxt = "n",
+     xlab = "",
+     ylab = "Energy Sub Metering")
 
 # then add points for each Sub_metering group
 points(d$Sub_metering_1, type = "l", col = "black")
@@ -53,7 +57,7 @@ axis(1, at = c( 1, middle, end), labels = c("Thurs", "Fri", "Sat"))
 
 # Finally add a legend at the top right
 legend("topright",
-       pch = 20,
+       lty = 1,
        col = c("black", "red", "blue"),
        legend = c("Sub_metering_1", "Sub_metering_2", "Sub_metering_3")
        )
