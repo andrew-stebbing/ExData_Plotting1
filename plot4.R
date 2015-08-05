@@ -41,28 +41,35 @@ d$Sub_metering_3 <- as.numeric(d$Sub_metering_3)
 # Plot 4
 
 # Combine 4 plots on the same graphics device
-# arrangement is 2 X 2 ordered by column. 
+# arrangement is 2 X 2 grid ordered by column. 
 
 par(mfcol = c(2,2))
 
-# Plot 1 (same as plot2.png)
+# Plot top left (same as plot2.png)
 plot(d$Global_active_power, type = "l", xaxt = "n", xlab = "", ylab = "Global Active Power (kilowatts)")
 axis(1, at = c( 1, grep("2007-02-02", d$Date)[1], length(d$Date)), labels = c("Thurs", "Fri", "Sat"))
 
-# Plot 2 (same as plot3.png)
+# Plot bottom left (same as plot3.png) but with no border around the legend
 plot(d$Sub_metering_1, type = "n", xaxt = "n", xlab = "", ylab = "Energy Sub Metering")
 points(d$Sub_metering_1, type = "l", col = "black")
 points(d$Sub_metering_2, type = "l", col = "red")
 points(d$Sub_metering_3, type = "l", col = "blue")
 axis(1, at = c( 1, grep("2007-02-02", d$Date)[1], length(d$Date)), labels = c("Thurs", "Fri", "Sat"))
-legend("topright", pch = 20, col = c("black", "red", "blue"), legend = c("Sub_metering_1", "Sub_metering_2", "Sub_metering_3"))
+legend("topright", lty = 1, bty = "n", col = c("black", "red", "blue"), legend = c("Sub_metering_1", "Sub_metering_2", "Sub_metering_3"))
 
-# Plot 3
+# Plot top right
 plot(d$Voltage, type = "l", xaxt = "n", xlab = "datetime", ylab = "Voltage")
 axis(1, at = c( 1, grep("2007-02-02", d$Date)[1], length(d$Date)), labels = c("Thurs", "Fri", "Sat"))
 
-# Plot 4
+# Plot bottom right
 plot(d$Global_reactive_power, type = "l", xaxt = "n", xlab = "datetime", ylab = "Global_reactive_power")
 axis(1, at = c( 1, grep("2007-02-02", d$Date)[1], length(d$Date)), labels = c("Thurs", "Fri", "Sat"))
 
+# -----------------------------------------------
 
+# Save the resultant plot as a .png file
+dev.copy(png,
+         file = "plot4.png",
+         width = 480,
+         height = 480)
+dev.off()
