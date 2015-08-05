@@ -37,12 +37,13 @@ d$Sub_metering_3 <- as.numeric(d$Sub_metering_3)
 
  
 # First create a basic plot with no points
+par(bg = "white")
 plot(d$Sub_metering_1,
      type = "n",
-     bg = "white",
      xaxt = "n",
      xlab = "",
-     ylab = "Energy Sub Metering")
+     ylab = "Energy Sub Metering",
+)
 
 # then add points for each Sub_metering group
 points(d$Sub_metering_1, type = "l", col = "black")
