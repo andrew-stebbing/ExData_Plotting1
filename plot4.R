@@ -43,7 +43,7 @@ d$Sub_metering_3 <- as.numeric(d$Sub_metering_3)
 # Combine 4 plots on the same graphics device
 # arrangement is 2 X 2 grid ordered by column. 
 
-par(mfcol = c(2,2))
+par(mfcol = c(2,2), bg = "white")
 
 # Plot top left (same as plot2.png)
 plot(d$Global_active_power, type = "l", xaxt = "n", xlab = "", ylab = "Global Active Power (kilowatts)")
