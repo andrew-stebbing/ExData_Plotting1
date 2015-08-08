@@ -28,24 +28,21 @@ d <- data[data$Date == ymd("2007-02-01") | data$Date == ymd("2007-02-02"), ]
 # Plot 3
 
 # This is a multi-variable plot for the 3 Sub-metering variables
-# with a number of differnt ways to complete it
 
-# First convert these to numbers
-d$Sub_metering_1 <- as.numeric(d$Sub_metering_1)
-d$Sub_metering_2 <- as.numeric(d$Sub_metering_2)
-d$Sub_metering_3 <- as.numeric(d$Sub_metering_3)
-
+# convert the the Sub_metering variables to numbers
+# These are found in columns 7-9
+d[, 7:9] <- lapply(d[, 7:9], as.numeric)
  
-# First create a basic plot with no points
+# create a basic plot with no points
 par(bg = "white")
 plot(d$Sub_metering_1,
      type = "n",
      xaxt = "n",
      xlab = "",
-     ylab = "Energy Sub Metering",
+     ylab = "Energy sub metering",
 )
 
-# then add points for each Sub_metering group
+# add points for each Sub_metering group
 points(d$Sub_metering_1, type = "l", col = "black")
 points(d$Sub_metering_2, type = "l", col = "red")
 points(d$Sub_metering_3, type = "l", col = "blue")
@@ -57,16 +54,16 @@ end <- length(d$Date)
 
 axis(1, at = c( 1, middle, end), labels = c("Thurs", "Fri", "Sat"))
 
-# Finally add a legend at the top right
+# add a legend at the top right
 legend("topright",
        lty = 1,
        col = c("black", "red", "blue"),
-       legend = c("Sub_metering_1", "Sub_metering_2", "Sub_metering_3")
+       legend = c("Sub_metering_1 ", "Sub_metering_2 ", "Sub_metering_3 ")
        )
 
 # -----------------------------------------------
 
-# Save the resultant plot as a .png file
+# save the resultant plot as a .png file
 dev.copy(png,
          file = "plot3.png",
          width = 480,
